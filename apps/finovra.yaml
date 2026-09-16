@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default # Which AppProject this belongs to (default for now — the optional Running ArgoCD Safely module covers custom projects)
   source:
-    repoURL: https://github.com/finovra-app/gitops.git
+    repoURL: https://github.com/pratyushmk/gitops.git
     targetRevision: main # Branch, tag, or commit SHA to track
     path: k8s/plain-manifests
     directory:
