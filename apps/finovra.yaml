@@ -15,5 +15,6 @@ spec:
     server: https://kubernetes.default.svc # "This same cluster" — ArgoCD's own cluster
     namespace: finovra # Namespace to deploy into
   syncPolicy:
+    automated: {}
     syncOptions:
       - CreateNamespace=true # Let ArgoCD create the namespace if it doesn't exist
