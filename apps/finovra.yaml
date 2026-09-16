@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/pratyushmk/gitops.git
     targetRevision: main # Branch, tag, or commit SHA to track
-    path: k8s/plain-manifests
+    path: kustomize/overlays/dev # Path within the repo to the manifests to apply
     directory:
       recurse: true # Pick up every service folder under this path
   destination:
@@ -16,7 +16,8 @@ spec:
     namespace: finovra # Namespace to deploy into
   syncPolicy:
     automated: {
-        prune: true, # Delete resources that are no longer tracked in Git
+        prune: true, # Delete resources that are no longer tracked in Git,
+        selfHeal: true, # Automatically apply changes if they drift from the Git state
       }
     syncOptions:
       - CreateNamespace=true # Let ArgoCD create the namespace if it doesn't exist
